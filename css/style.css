@@ -1,0 +1,61 @@
+/* GENERALI */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(8, 59, 76);
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 40px 60px;
+}
+
+header > h1 {
+    font-size: 40px;
+    color: rgb(8, 59, 76);
+}
+
+/* MAIN */
+/* container */
+#container {
+    max-width: 720px;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* box */
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #fff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.easy {
+    width: 10%;
+    height: 60px;
+}
+.medium {
+    width: 11%;
+    height: 80px;
+}
+.hard {
+    width: 14%;
+    height: 100px;
+}
+
+
+.azure {
+    background-color: rgb(19, 137, 178);
+}
+
