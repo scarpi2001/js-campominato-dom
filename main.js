@@ -8,6 +8,9 @@ const contenitore = document.getElementById("container");
 const myButton = document.getElementById("button");
 const difficolta = document.getElementById("difficulty");
 
+//crea array che contiene tutte le box della griglia
+const gridBoxes = document.getElementsByClassName("box");
+
 //genera griglia
 myButton.addEventListener("click",
 
@@ -22,29 +25,40 @@ myButton.addEventListener("click",
             //crea array bombe
             const bombe = arrRandomNumMinMax (16, 1, 100);
             console.log(bombe);
-            
+
             //genera 100 elementi (div) nella griglia
             for (let i = 1; i <= 100; i++) {
 
                 const div = document.createElement("div");
                 div.classList.add("box");
                 div.classList.add("easy");
-                div.append(i);
                 contenitore.append(div);
-
-                //al click aggiungi classe che colora la cella e stampa n° cella in console
+                
+                //al click aggiungi classe che colora la cella di rosso se il n° di essa appartiene all'array bombe, se no di azzuro
                 div.addEventListener("click",
 
                     function(){
                         if (bombe.includes(i)) {
                             div.classList.add("red");
+
+                            //se la cella diventa rossa è gameover, scopri tutte le celle
+                            for (let i = 0; i < gridBoxes.length; i++) {
+            
+                                if (bombe.includes(i)) {
+                                    gridBoxes[i].classList.add("red")
+                                } else {
+                                    gridBoxes[i].classList.add("azure")
+                                }
+                                
+                            }
+
                         } else {
                             div.classList.add("azure");
                         }
                     }
-
                 );
             }
+
         } else if (difficolta.value === "medium") { //DIFFICOLTA' MEDIUM
 
             //crea array bombe
@@ -57,22 +71,33 @@ myButton.addEventListener("click",
                 const div = document.createElement("div");
                 div.classList.add("box");
                 div.classList.add("medium");
-                div.append(i);
                 contenitore.append(div);
 
-                //al click aggiungi classe che colora la cella e stampa n° cella in console
+                //al click aggiungi classe che colora la cella di rosso se il n° di essa appartiene all'array bombe, se no di azzuro
                 div.addEventListener("click",
 
                     function(){
                         if (bombe.includes(i)) {
                             div.classList.add("red");
+
+                            //se la cella diventa rossa è gameover, scopri tutte le celle
+                            for (let i = 0; i < gridBoxes.length; i++) {
+            
+                                if (bombe.includes(i)) {
+                                    gridBoxes[i].classList.add("red")
+                                } else {
+                                    gridBoxes[i].classList.add("azure")
+                                }
+                                
+                            }
+
                         } else {
                             div.classList.add("azure");
                         }
                     }
-
                 );
             }
+
         } else { //DIFFICOLTA' HARD
 
             //crea array bombe
@@ -85,20 +110,30 @@ myButton.addEventListener("click",
                 const div = document.createElement("div");
                 div.classList.add("box");
                 div.classList.add("hard");
-                div.append(i);
                 contenitore.append(div);
 
-                //al click aggiungi classe che colora la cella e stampa n° cella in console
+                //al click aggiungi classe che colora la cella di rosso se il n° di essa appartiene all'array bombe, se no di azzuro
                 div.addEventListener("click",
 
                     function(){
                         if (bombe.includes(i)) {
                             div.classList.add("red");
+
+                            //se la cella diventa rossa è gameover, scopri tutte le celle
+                            for (let i = 0; i < gridBoxes.length; i++) {
+            
+                                if (bombe.includes(i)) {
+                                    gridBoxes[i].classList.add("red");
+                                } else {
+                                    gridBoxes[i].classList.add("azure");
+                                }
+                                
+                            }
+
                         } else {
                             div.classList.add("azure");
                         }
                     }
-
                 );
             }
         }
