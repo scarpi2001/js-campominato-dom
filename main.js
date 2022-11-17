@@ -12,16 +12,16 @@ const difficolta = document.getElementById("difficulty");
 myButton.addEventListener("click",
 
     function(){
-        //svuota griglia
+        //svuota griglia precedente
         contenitore.innerHTML = "";
         console.clear();
 
-        //crea array bombe
-        const bombe = arrRandomNumMinMax (16, 1, 100);
-        console.log(bombe);
-
         //DIFFICOLTA' EASY
         if (difficolta.value === "easy") {
+            
+            //crea array bombe
+            const bombe = arrRandomNumMinMax (16, 1, 100);
+            console.log(bombe);
             
             //genera 100 elementi (div) nella griglia
             for (let i = 1; i <= 100; i++) {
@@ -36,14 +36,21 @@ myButton.addEventListener("click",
                 div.addEventListener("click",
 
                     function(){
-                    div.classList.add("azure");
-                    console.log(i);
+                        if (bombe.includes(i)) {
+                            div.classList.add("red");
+                        } else {
+                            div.classList.add("azure");
+                        }
                     }
 
                 );
             }
         } else if (difficolta.value === "medium") { //DIFFICOLTA' MEDIUM
 
+            //crea array bombe
+            const bombe = arrRandomNumMinMax (16, 1, 81);
+            console.log(bombe);
+            
             //genera 81 elementi (div) nella griglia
             for (let i = 1; i <= 81; i++) {
 
@@ -57,14 +64,21 @@ myButton.addEventListener("click",
                 div.addEventListener("click",
 
                     function(){
-                    div.classList.add("azure");
-                    console.log(i);
+                        if (bombe.includes(i)) {
+                            div.classList.add("red");
+                        } else {
+                            div.classList.add("azure");
+                        }
                     }
 
                 );
             }
         } else { //DIFFICOLTA' HARD
 
+            //crea array bombe
+            const bombe = arrRandomNumMinMax (16, 1, 49);
+            console.log(bombe);
+            
             //genera 49 elementi (div) nella griglia
             for (let i = 1; i <= 49; i++) {
 
@@ -78,8 +92,11 @@ myButton.addEventListener("click",
                 div.addEventListener("click",
 
                     function(){
-                    div.classList.add("azure");
-                    console.log(i);
+                        if (bombe.includes(i)) {
+                            div.classList.add("red");
+                        } else {
+                            div.classList.add("azure");
+                        }
                     }
 
                 );
@@ -92,24 +109,24 @@ myButton.addEventListener("click",
 
 
 //FUNZIONI
-//crea elemento e aggiungi classi
 
 //numero random min max
 function randomNumMinMax (min, max){
-    return ( Math.floor(Math.random() * ((max + 1) - min) + min));
+    return Math.floor(Math.random() * (max - min) + min);
 }
 
 //crea array di tot(es.16) numeri scegliendoli randomicamente da un totale di tot(es.100) numeri
 function arrRandomNumMinMax (howMany, numMin, numMax) {
     const array = [];
 
-    while(array.lenght < howMany) {
+    while(array.length < howMany) {
         let numero = randomNumMinMax(numMin, numMax);
-
+        
         if (!array.includes(numero)) {
             array.push(numero);
         }
     }
-
+    
     return array;
+    
 }

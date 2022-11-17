@@ -58,4 +58,6 @@ header > h1 {
 .azure {
     background-color: rgb(19, 137, 178);
 }
-
+.red {
+    background-color: red;
+}
