@@ -8,8 +8,7 @@ const contenitore = document.getElementById("container");
 const myButton = document.getElementById("button");
 const difficolta = document.getElementById("difficulty");
 
-//crea array che contiene tutte le box della griglia
-const gridBoxes = document.getElementsByClassName("box");
+
 
 //genera griglia
 myButton.addEventListener("click",
@@ -19,6 +18,9 @@ myButton.addEventListener("click",
         contenitore.innerHTML = "";
         console.clear();
 
+        //crea array che contiene tutte le box della griglia
+        const gridBoxes = document.getElementsByClassName("box");
+        console.log(gridBoxes);
         //DIFFICOLTA' EASY
         if (difficolta.value === "easy") {
             
@@ -39,19 +41,18 @@ myButton.addEventListener("click",
 
                     function(){
                         if (bombe.includes(i)) {
-                            div.classList.add("red");
 
                             //se la cella diventa rossa è gameover, scopri tutte le celle
                             for (let i = 0; i < gridBoxes.length; i++) {
-            
-                                if (bombe.includes(i)) {
+        
+                                if (bombe.includes(i + 1)) {
                                     gridBoxes[i].classList.add("red")
                                 } else {
                                     gridBoxes[i].classList.add("azure")
                                 }
                                 
                             }
-
+                            
                         } else {
                             div.classList.add("azure");
                         }
@@ -78,19 +79,18 @@ myButton.addEventListener("click",
 
                     function(){
                         if (bombe.includes(i)) {
-                            div.classList.add("red");
 
                             //se la cella diventa rossa è gameover, scopri tutte le celle
                             for (let i = 0; i < gridBoxes.length; i++) {
-            
-                                if (bombe.includes(i)) {
+        
+                                if (bombe.includes(i + 1)) {
                                     gridBoxes[i].classList.add("red")
                                 } else {
                                     gridBoxes[i].classList.add("azure")
                                 }
                                 
                             }
-
+                            
                         } else {
                             div.classList.add("azure");
                         }
@@ -117,12 +117,11 @@ myButton.addEventListener("click",
 
                     function(){
                         if (bombe.includes(i)) {
-                            div.classList.add("red");
 
                             //se la cella diventa rossa è gameover, scopri tutte le celle
                             for (let i = 0; i < gridBoxes.length; i++) {
             
-                                if (bombe.includes(i)) {
+                                if (bombe.includes(i + 1)) {
                                     gridBoxes[i].classList.add("red");
                                 } else {
                                     gridBoxes[i].classList.add("azure");
@@ -137,7 +136,7 @@ myButton.addEventListener("click",
                 );
             }
         }
-    }
+    }  
 );
 
  

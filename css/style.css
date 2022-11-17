@@ -22,6 +22,14 @@ header > h1 {
     color: rgb(8, 59, 76);
 }
 
+/* bottoni */
+.buttons {
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+}
+
 /* MAIN */
 /* container */
 #container {
@@ -36,8 +44,8 @@ header > h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #fff;
-    color: #fff;
+    border: 2px solid rgb(8, 59, 76);
+    background-color: #fff;
     cursor: pointer;
 }
 
