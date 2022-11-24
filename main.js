@@ -5,22 +5,31 @@ ed emetto un messaggio in console con il numero della cella cliccata.*/
 
 //richiama elementi html
 const contenitore = document.getElementById("container");
-const myButton = document.getElementById("button");
 const difficolta = document.getElementById("difficulty");
-
-
+const score = document.getElementById("score");
 
 //genera griglia
-myButton.addEventListener("click",
+const playButton = document.getElementById("play").addEventListener("click",
 
     function(){
-        //svuota griglia precedente
+        //istruzioni new game
+        let punteggio = 0;
+        score.innerHTML = "SCORE: 00";
+
+        this.value = "New Game";
+
         contenitore.innerHTML = "";
         console.clear();
+
+        //crea layover
+        const layoverDiv = document.createElement("div");
+        layoverDiv.classList.add("layover");
+        contenitore.append(layoverDiv);
 
         //crea array che contiene tutte le box della griglia
         const gridBoxes = document.getElementsByClassName("box");
         console.log(gridBoxes);
+
         //DIFFICOLTA' EASY
         if (difficolta.value === "easy") {
             
@@ -40,22 +49,54 @@ myButton.addEventListener("click",
                 div.addEventListener("click",
 
                     function(){
-                        if (bombe.includes(i)) {
 
-                            //se la cella diventa rossa è gameover, scopri tutte le celle
+                        if (bombe.includes(i)) {
+                            //se la cella diventa rossa è gameover, scopri tutte le celle, dai un alert e un layover per rendere le celle non cliccabili
+                            layoverDiv.classList.add("active");
                             for (let i = 0; i < gridBoxes.length; i++) {
         
                                 if (bombe.includes(i + 1)) {
-                                    gridBoxes[i].classList.add("red")
+                                    gridBoxes[i].classList.add("bomb")
                                 } else {
-                                    gridBoxes[i].classList.add("azure")
+                                    gridBoxes[i].classList.add("clicked")
                                 }
                                 
                             }
+
+                            setTimeout(() => {
+                                score.innerHTML = `GAME OVER   SCORE: 0${punteggio}`;
+                                alert(
+                                   `GAME OVER   SCORE: 0${punteggio}`
+                                );
+
+                            }, 500);
                             
-                        } else {
-                            div.classList.add("azure");
-                        }
+                         //se no la cella diventa azzurra e il punteggio viene incrementato     
+                        } else { 
+                            div.classList.add("clicked");
+                            punteggio++;
+                            score.innerHTML = `SCORE: 0${punteggio}`;
+                            
+                            //se clicchi tutte le celle senza bombe hai vinto, scopri tutte le bombe
+                            if (punteggio === 84) {
+                                for (let i = 0; i < gridBoxes.length; i++) {
+                                    if (bombe.includes(i + 1)) {
+                                        gridBoxes[i].classList.add("bomb")
+                                    } 
+                                }
+                        
+                                layoverDiv.classList.add("active");
+                                score.innerHTML = `SCORE: 0${punteggio}`;
+
+                                setTimeout(() => {
+                                    score.innerHTML = `YOU WIN   SCORE: 0${punteggio}`;
+                                    alert(
+                                       `YOU WIN   SCORE: 0${punteggio}`
+                                    );
+    
+                                }, 500);
+                            }
+                        }    
                     }
                 );
             }
@@ -78,22 +119,54 @@ myButton.addEventListener("click",
                 div.addEventListener("click",
 
                     function(){
-                        if (bombe.includes(i)) {
-
-                            //se la cella diventa rossa è gameover, scopri tutte le celle
+                        //se la cella diventa rossa è gameover, scopri tutte le celle, dai un alert e un layover per rendere le celle non cliccabili
+                        if (bombe.includes(i)) { 
+                            
+                            layoverDiv.classList.add("active");
                             for (let i = 0; i < gridBoxes.length; i++) {
         
                                 if (bombe.includes(i + 1)) {
-                                    gridBoxes[i].classList.add("red")
+                                    gridBoxes[i].classList.add("bomb")
                                 } else {
-                                    gridBoxes[i].classList.add("azure")
+                                    gridBoxes[i].classList.add("clicked")
                                 }
                                 
                             }
+
+                            setTimeout(() => {
+                                score.innerHTML = `GAME OVER   SCORE: 0${punteggio}`;
+                                alert(
+                                   `GAME OVER   SCORE: 0${punteggio}`
+                                );
+
+                            }, 500);
+
+                         //se no la cella diventa azzurra e il punteggio viene incrementato     
+                        } else { 
+                            div.classList.add("clicked");
+                            punteggio++;
+                            score.innerHTML = `SCORE: 0${punteggio}`;
                             
-                        } else {
-                            div.classList.add("azure");
-                        }
+                            //se clicchi tutte le celle senza bombe hai vinto, scopri tutte le bombe
+                            if (punteggio === 65) {
+                                for (let i = 0; i < gridBoxes.length; i++) {
+                                    if (bombe.includes(i + 1)) {
+                                        gridBoxes[i].classList.add("bomb")
+                                    } 
+                                }
+                        
+                                layoverDiv.classList.add("active");
+                                score.innerHTML = `SCORE: 0${punteggio}`;
+
+                                setTimeout(() => {
+                                    score.innerHTML = `YOU WIN   SCORE: 0${punteggio}`;
+                                    alert(
+                                       `YOU WIN   SCORE: 0${punteggio}`
+                                    );
+    
+                                }, 500);
+                            }
+                        }     
                     }
                 );
             }
@@ -116,21 +189,53 @@ myButton.addEventListener("click",
                 div.addEventListener("click",
 
                     function(){
-                        if (bombe.includes(i)) {
 
-                            //se la cella diventa rossa è gameover, scopri tutte le celle
+                        if (bombe.includes(i)) {
+                            //se la cella diventa rossa è gameover, scopri tutte le celle, dai un alert e un layover per rendere le celle non cliccabili
+                            layoverDiv.classList.add("active");
                             for (let i = 0; i < gridBoxes.length; i++) {
-            
+        
                                 if (bombe.includes(i + 1)) {
-                                    gridBoxes[i].classList.add("red");
+                                    gridBoxes[i].classList.add("bomb")
                                 } else {
-                                    gridBoxes[i].classList.add("azure");
+                                    gridBoxes[i].classList.add("clicked")
                                 }
                                 
                             }
 
-                        } else {
-                            div.classList.add("azure");
+                            setTimeout(() => {
+                                score.innerHTML = `GAME OVER   SCORE: 0${punteggio}`;
+                                alert(
+                                   `GAME OVER   SCORE: 0${punteggio}`
+                                );
+
+                            }, 500);
+                            
+                         //se no la cella diventa azzurra e il punteggio viene incrementato     
+                        } else { 
+                            div.classList.add("clicked");
+                            punteggio++;
+                            score.innerHTML = `SCORE: 0${punteggio}`;
+                            
+                            //se clicchi tutte le celle senza bombe hai vinto, scopri tutte le bombe
+                            if (punteggio === 34) {
+                                for (let i = 0; i < gridBoxes.length; i++) {
+                                    if (bombe.includes(i + 1)) {
+                                        gridBoxes[i].classList.add("bomb")
+                                    } 
+                                }
+                        
+                                layoverDiv.classList.add("active");
+                                score.innerHTML = `SCORE: 0${punteggio}`;
+
+                                setTimeout(() => {
+                                    score.innerHTML = `YOU WIN   SCORE: 0${punteggio}`;
+                                    alert(
+                                       `YOU WIN   SCORE: 0${punteggio}`
+                                    );
+    
+                                }, 500);
+                            }
                         }
                     }
                 );
@@ -139,7 +244,6 @@ myButton.addEventListener("click",
     }  
 );
 
- 
 
 
 //FUNZIONI

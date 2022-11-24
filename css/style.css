@@ -31,12 +31,20 @@ header > h1 {
 }
 
 /* MAIN */
+#score {
+    color: #fff;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 50px;
+}
+
 /* container */
 #container {
     max-width: 720px;
     margin: 50px auto;
     display: flex;
     flex-wrap: wrap;
+    position: relative;
 }
 
 /* box */
@@ -49,6 +57,7 @@ header > h1 {
     cursor: pointer;
 }
 
+/* difficoltà */
 .easy {
     width: 10%;
     height: 60px;
@@ -62,10 +71,24 @@ header > h1 {
     height: 100px;
 }
 
-
-.azure {
+/* stato box */
+.clicked {
     background-color: rgb(19, 137, 178);
 }
-.red {
+.bomb {
     background-color: red;
+}
+
+/* layover */
+.layover {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.active {
+    display: block;
 }
