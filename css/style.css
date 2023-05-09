@@ -49,25 +49,23 @@ header > h1 {
 
 /* box */
 .box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid rgb(8, 59, 76);
+    margin: 2px;
     background-color: #fff;
     cursor: pointer;
+    position: relative;
 }
 
 /* difficoltà */
 .easy {
-    width: 10%;
+    width: calc(10% - 4px);
     height: 60px;
 }
 .medium {
-    width: 11%;
+    width: calc(11% - 3.3px);
     height: 80px;
 }
 .hard {
-    width: 14%;
+    width: calc(14% - 2px);
     height: 100px;
 }
 
@@ -75,20 +73,23 @@ header > h1 {
 .clicked {
     background-color: rgb(19, 137, 178);
 }
+.unclicked {
+    cursor: default;
+}
 .bomb {
     background-color: red;
 }
 
-/* layover */
+/* layovers */
 .layover {
+    display: none;
     width: 100%;
     height: 100%;
-    display: none;
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 999;
 }
-
 .active {
     display: block;
 }
