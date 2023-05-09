@@ -9,8 +9,11 @@ const difficulty = document.getElementById("difficulty");
 const score = document.getElementById("score");
 const playButton = document.getElementById("play");
 
+
 //genera griglia al click del pulsante play
 playButton.addEventListener("click", play);
+
+
 
 
 //FUNZIONI
@@ -40,7 +43,7 @@ function arrRandomNumMinMax (howMany, numMin, numMax) {
 function newLevel (elements, difficulty) {
 
     //istruzioni new game
-    const punteggio = 0;
+    let punteggio = 0;
 
     score.innerHTML = "SCORE: 00";
 
