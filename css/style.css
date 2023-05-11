@@ -1,95 +1,98 @@
 /* GENERALI */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: rgb(8, 59, 76);
+  background-color: rgb(8, 59, 76);
 }
 
 /* HEADER */
 header {
-    display: flex;
-    justify-content: space-between;
-    background-color: #fff;
-    padding: 40px 60px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 40px 60px;
 }
 
 header > h1 {
-    font-size: 40px;
-    color: rgb(8, 59, 76);
+  font-size: 40px;
+  color: rgb(8, 59, 76);
 }
 
 /* bottoni */
 .buttons {
-    width: 150px;
-    height: 50px;
-    font-size: 20px;
-    text-align: center;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
 }
 
 /* MAIN */
 #score {
-    color: #fff;
-    margin-top: 20px;
-    text-align: center;
-    font-size: 50px;
+  color: #fff;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 50px;
 }
 
 /* container */
 #container {
-    max-width: 720px;
-    margin: 50px auto;
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
+  max-width: 720px;
+  margin: 50px auto;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
 }
 
-/* box */
-.box {
-    margin: 2px;
-    background-color: #fff;
-    cursor: pointer;
-    position: relative;
+/* cell */
+.cell {
+  margin: 2px;
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
 }
 
 /* difficoltà */
 .easy {
-    width: calc(10% - 4px);
-    height: 60px;
+  width: calc(10% - 4px);
+  height: 60px;
 }
 .medium {
-    width: calc(11% - 3.3px);
-    height: 80px;
+  width: calc(11% - 3.3px);
+  height: 80px;
 }
 .hard {
-    width: calc(14% - 2px);
-    height: 100px;
+  width: calc(14% - 2px);
+  height: 100px;
 }
 
 /* stato box */
 .clicked {
-    background-color: rgb(19, 137, 178);
+  background-color: rgb(19, 137, 178);
 }
 .unclicked {
-    cursor: default;
+  cursor: default;
+}
+.close {
+  background-color: orange;
 }
 .bomb {
-    background-color: red;
+  background-color: red;
 }
 
 /* layovers */
 .layover {
-    display: none;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 999;
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
 }
 .active {
-    display: block;
+  display: block;
 }
