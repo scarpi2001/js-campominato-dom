@@ -37,9 +37,12 @@ function arrRandomNumMinMax(howMany, numMin, numMax) {
 }
 
 //crea nuovo livello
-function newLevel(totalCells, difficulty, verticalCellDistance) {
+function newLevel(gridSize, difficulty) {
   //istruzioni new game
   console.clear();
+
+  const totalCells = gridSize * gridSize;
+
   let punteggio = 0;
 
   score.innerHTML = "SCORE: 00";
@@ -95,10 +98,10 @@ function newLevel(totalCells, difficulty, verticalCellDistance) {
               gridCells[i].classList.add("bomb");
             } else if (
               //se la cella è adiacente alla bomba (destra sinistra sopra e sotto) colorala di arancione
-              bombe.includes(i - 1) ||
-              bombe.includes(i + 1) ||
-              bombe.includes(i - verticalCellDistance) ||
-              bombe.includes(i + verticalCellDistance)
+              (i % gridSize !== 0 && bombe.includes(i - 1)) || // sinistra
+              (i % gridSize !== gridSize - 1 && bombe.includes(i + 1)) || // destra
+              bombe.includes(i - gridSize) || // sopra
+              bombe.includes(i + gridSize) // sotto
             ) {
               gridCells[i].classList.add("close");
             } else {
@@ -114,10 +117,10 @@ function newLevel(totalCells, difficulty, verticalCellDistance) {
         } else {
           //se la cella è adiacente alla bomba (destra sinistra sopra e sotto) colorala di arancione e il punteggio viene incrementato
           if (
-            bombe.includes(i - 1) ||
-            bombe.includes(i + 1) ||
-            bombe.includes(i - verticalCellDistance) ||
-            bombe.includes(i + verticalCellDistance)
+            (i % gridSize !== 0 && bombe.includes(i - 1)) || // sinistra
+            (i % gridSize !== gridSize - 1 && bombe.includes(i + 1)) || // destra
+            bombe.includes(i - gridSize) || // sopra
+            bombe.includes(i + gridSize) // sotto
           ) {
             cell.classList.add("close");
           }
@@ -151,10 +154,10 @@ function newLevel(totalCells, difficulty, verticalCellDistance) {
 function play() {
   //cambia le celle generate in base alla difficoltà
   if (difficulty.value === "easy") {
-    newLevel(100, "easy", 10);
+    newLevel(10, "easy");
   } else if (difficulty.value === "medium") {
-    newLevel(81, "medium", 9);
+    newLevel(9, "medium");
   } else {
-    newLevel(49, "hard", 7);
+    newLevel(7, "hard");
   }
 }
