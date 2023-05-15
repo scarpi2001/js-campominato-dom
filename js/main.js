@@ -109,8 +109,7 @@ function newLevel(totalCells, difficulty, verticalCellDistance) {
 
           //informa l'utente che ha perso
           setTimeout(() => {
-            score.innerHTML = `GAME OVER   SCORE: 0${punteggio}`;
-            alert(`GAME OVER   SCORE: 0${punteggio}`);
+            score.innerHTML = `GAME OVER<br>SCORE: 0${punteggio}`;
           }, 500);
         } else {
           //se la cella è adiacente alla bomba (destra sinistra sopra e sotto) colorala di arancione e il punteggio viene incrementato
@@ -140,8 +139,7 @@ function newLevel(totalCells, difficulty, verticalCellDistance) {
 
             //informa l'utente che ha vinto
             setTimeout(() => {
-              score.innerHTML = `YOU WIN   SCORE: 0${punteggio}`;
-              alert(`YOU WIN   SCORE: 0${punteggio}`);
+              score.innerHTML = `YOU WIN<br>SCORE: 0${punteggio}`;
             }, 500);
           }
         }

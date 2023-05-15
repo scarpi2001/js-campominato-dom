@@ -14,7 +14,7 @@ header {
   display: flex;
   justify-content: space-between;
   background-color: #fff;
-  padding: 40px 60px;
+  padding: 20px 60px;
 }
 
 header > h1 {
@@ -22,8 +22,13 @@ header > h1 {
   color: rgb(8, 59, 76);
 }
 
+header div {
+  display: flex;
+  gap: 20px;
+}
+
 /* bottoni */
-.buttons {
+.button {
   width: 150px;
   height: 50px;
   font-size: 20px;
@@ -95,4 +100,9 @@ header > h1 {
 }
 .active {
   display: block;
+}
+
+/* fullscreen */
+#fullscreenButton {
+  display: none; /* Nasconde il pulsante di default */
 }
