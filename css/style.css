@@ -66,12 +66,12 @@ header div {
   height: 60px;
 }
 .medium {
-  width: calc(11% - 3.3px);
-  height: 80px;
+  width: calc(100% / 9 - 4px);
+  height: 70px;
 }
 .hard {
-  width: calc(14% - 2px);
-  height: 100px;
+  width: calc(100% / 7 - 4px);
+  height: 90px;
 }
 
 /* stato box */
@@ -105,4 +105,79 @@ header div {
 /* fullscreen */
 #fullscreenButton {
   display: none; /* Nasconde il pulsante di default */
+}
+
+/* RESPONSIVE */
+/* m */
+@media screen and (max-width: 900px) {
+  header {
+    display: block;
+    text-align: center;
+  }
+
+  header div {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  #container {
+    max-width: 620px;
+  }
+}
+
+/* s */
+@media screen and (max-width: 700px) {
+  header div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #container {
+    max-width: 420px;
+  }
+
+  .easy {
+    height: 40px;
+  }
+  .medium {
+    height: 50px;
+  }
+  .hard {
+    height: 60px;
+  }
+}
+
+/* xs */
+@media screen and (max-width: 480px) {
+  #container {
+    max-width: 360px;
+  }
+
+  .easy {
+    height: 30px;
+  }
+  .medium {
+    height: 40px;
+  }
+  .hard {
+    height: 50px;
+  }
+}
+
+/* xxs */
+@media screen and (max-width: 400px) {
+  #container {
+    max-width: 300px;
+    padding: 0 10px;
+  }
+
+  .easy {
+    height: 25px;
+  }
+  .medium {
+    height: 35px;
+  }
+  .hard {
+    height: 40px;
+  }
 }
