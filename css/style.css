@@ -75,17 +75,17 @@ header div {
 }
 
 /* stato box */
-.clicked {
+.azure {
   background-color: rgb(19, 137, 178);
 }
-.unclicked {
-  cursor: default;
-}
-.close {
+.orange {
   background-color: orange;
 }
 .bomb {
   background-color: red;
+}
+.unclickable {
+  cursor: default;
 }
 
 /* layovers */
